@@ -1,23 +1,17 @@
-
+# Import countNucFrequency from maingeneratedsequencedefs
 from .maingeneratesequencedefs import countNucFrequency
-
+#import random
 import random
+#import numpy
 import numpy as np
+#Declare Nucleotides list
 Nucleotiedes = ["A","C","T","G"]
-#gc =int(input("Please enter desired gc%: ")) 
-
-#numb_nuc = int(input("Enter number of nucleotides to generate"))
-#print("Enter probability of each bp, example for `'80%' gc input .4 for g and .4 for c .1 for A and .1 for T make sure your values sum up to 1")
-#ProbA = float(input("Please enter probability for base A:" ))
-#ProbC = float(input("Please enter probability for base C:" ))
-#ProbT = float(input("Please enter probability for base T:" ))
-#ProbG = float(input("Please enter probability for base G:" ))
 
 
-
+#Definition that takes in probability variables and numb_nuc and generates a nucleotide sequence by probability.
 def randnucleotidegenprob(a,c,t,g,x):
 
-  
+  #Set variables
     ProbA = a
     ProbC = c
     ProbT = t
@@ -27,10 +21,11 @@ def randnucleotidegenprob(a,c,t,g,x):
     countC =0
     countT =0
     countG =0
-    
+    #set probabilities 
     P = (ProbA, ProbC,ProbT,ProbG)
+    # random string generation using numpy and random 
     randDNAstr = ''.join([np.random.choice(Nucleotiedes, p=P)for nuc in range(numb_nuc)])
-
+    # series of for loops iterating through randDNAstr to determine counts for each basepair. 
     for i in randDNAstr:
         if i =='A':
             countA = countA + 1
